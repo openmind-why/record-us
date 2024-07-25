@@ -34,6 +34,8 @@ Dockerfile
 # local env files
 .env*.local
 
+.env
+
 # vercel
 .vercel
 
