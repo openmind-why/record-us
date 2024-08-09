@@ -36,6 +36,8 @@ Dockerfile
 
 .env
 
+.next
+
 # vercel
 .vercel
 
