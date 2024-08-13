@@ -18,10 +18,13 @@ const Index = () => {
   }
 
   return (
-    <div>
-      header
-      <div onClick={() => setThem('dark')}>dark</div>
-      <div onClick={() => setThem('light')}>light</div>
+    <div className='flex justify-between'>
+      <div>left</div>
+      <div>center</div>
+      <div>
+        <div __cursorPointer onClick={() => setThem('dark')}>dark</div>
+        <div __cursorPointer onClick={() => setThem('light')}>light</div>
+      </div>
     </div>
   )
 }

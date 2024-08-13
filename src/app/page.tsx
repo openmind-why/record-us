@@ -7,7 +7,7 @@ export default async function Home() {
   // console.log(rows,'=============');
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24 bg-white text-black dark:bg-black dark:text-white" >
+    <div className="flex min-h-screen flex-col items-center justify-between  bg-white text-black dark:bg-black dark:text-white" >
       <Header/>
       <div className="flex-1">home</div>
     </div>
