@@ -18,7 +18,7 @@ const Index = () => {
   }
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex  w-screen '>
       <div>left</div>
       <div>center</div>
       <div>
