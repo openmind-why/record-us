@@ -2,33 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
 
-/* @media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --color-text-base: #000;
+    --color-text-muted: #c7d2f7;
+    --color-text-inverted: #4f46e5;
+    --color-fill: #4338ca;
+    --color-button-accent: #FFF;
+    --color-button-accent-hover: #eef2ff;
+    --color-button-muted: 99, 102, 241;
+    --bg-color:linear-gradient(153deg, #e97868, #c99e89, #98bfab, #10dcce)
   }
-} */
+  .dark {
+    --color-text-base: #FFF;
+    --color-text-muted: #fecaca;
+    --color-text-inverted: #dc2626;
+    --color-fill: #b91c1c;
+    --color-button-accent: #FFF;
+    --color-button-accent-hover: #fef2f2;
+    --color-button-muted: 239, 68, 68;
+    --bg-color:linear-gradient(352deg, black, #43464f);
+  }
+ 
+}
 
-/* .dark\:underline:where([data-mode="dark"], [data-mode="dark"] *){
-  text-decoration-line: underline
-} */
-/* 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
 
 @layer utilities {
   .text-balance {

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-
+import { twMerge } from 'tailwind-merge'
 //
 const Index = () => {
   const setThem = (mode: string) => {
@@ -19,11 +19,15 @@ const Index = () => {
 
   return (
     <div className='flex  w-screen '>
-      <div>left</div>
+      <div className={twMerge('text-green-500 text-red-400')}>left</div>
       <div>center</div>
       <div>
-        <div __cursorPointer onClick={() => setThem('dark')}>dark</div>
-        <div __cursorPointer onClick={() => setThem('light')}>light</div>
+        <div __cursorPointer onClick={() => setThem('dark')}>
+          dark
+        </div>
+        <div __cursorPointer onClick={() => setThem('light')}>
+          light
+        </div>
       </div>
     </div>
   )
