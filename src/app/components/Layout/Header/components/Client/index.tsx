@@ -1,33 +1,28 @@
 'use client'
 
 import { setCookie } from '@/utils/tool'
-import { useEffect, useLayoutEffect } from 'react'
 import { twMerge } from 'tailwind-merge'
 //
-const Index = ({ dark }: { dark?: string }) => {
+const Index = () => {
   const setThem = (mode: string) => {
     setCookie('theme', mode)
     dispose(mode)
   }
 
-  useLayoutEffect(() => {
-    setThem(dark || 'light')
-  }, [])
-
   const dispose = (res: any) => {
     if (res === 'dark' || !window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.classList.add('dark')
+      document.body.classList.add('dark')
     } else {
-      document.documentElement.classList.remove('dark')
+      document.body.classList.remove('dark')
     }
   }
   const cx = twMerge('text-green-500 text-red-400')
 
   return (
-    <div className='flex  w-screen '>
+    <div className='flex  w-screen px-10 py-3'>
       <div>left</div>
       <div className='flex-1'>center</div>
-      <div>
+      <div className='flex'>
         <div __cursorPointer className='font-semibold text-3xl' onClick={() => setThem('dark')}>
           dark
         </div>

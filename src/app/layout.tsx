@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Script from 'next/script'
-import { headers } from 'next/headers'
+import { cookies, headers } from 'next/headers'
+import clsx from 'clsx'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,6 +17,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const c = cookies().get('theme')
+  console.log(c, '====layoutcc----')
+
   return (
     <html lang='en'>
       <head>
@@ -27,7 +31,7 @@ export default function RootLayout({
 }`} */}
         </Script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={clsx(inter.className, c?.value || 'light')}>{children}</body>
     </html>
   )
 }
