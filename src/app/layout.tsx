@@ -4,6 +4,7 @@ import './globals.css'
 import Script from 'next/script'
 import { cookies, headers } from 'next/headers'
 import clsx from 'clsx'
+import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,20 +19,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const c = cookies().get('theme')
-  console.log(c, '====layoutcc----')
 
   return (
     <html lang='en'>
-      <head>
-        <Script>
-          {/* {`if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
-} else {
-  document.documentElement.classList.remove('dark')
-}`} */}
-        </Script>
-      </head>
-      <body className={clsx(inter.className, c?.value || 'light')}>{children}</body>
+      <head></head>
+      <body className={clsx(inter.className, c?.value || 'light')}>
+        <AntdRegistry>{children}</AntdRegistry>
+      </body>
     </html>
   )
 }
