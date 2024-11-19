@@ -1,5 +1,6 @@
 'use client'
 
+import ThemeSwitch from '@/app/components/Part/ThemeSwitch'
 import { setCookie } from '@/utils/tool'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -25,8 +26,7 @@ const Index = ({ dark }: { dark?: boolean }) => {
     setThem(v ? 'dark' : 'light')
   }
   return (
-    <div className='flex  w-screen px-10 py-3'>
-      <div>left</div>
+    <div className='px-10 py-3 headerCard'>
       <div className='flex-1'>center</div>
       <div className='flex'>
         {/* <Segmented
@@ -37,6 +37,7 @@ const Index = ({ dark }: { dark?: boolean }) => {
           value={isDark}
           onChange={onChange}
         /> */}
+        <ThemeSwitch />
         <div __cursorPointer className='font-semibold text-3xl mr-2' onClick={() => setThem('dark')}>
           暗黑
         </div>

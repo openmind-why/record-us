@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
@@ -23,6 +24,27 @@ const config: Config = {
 
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addComponents,theme }) => {
+      addComponents({
+        '.headerCard':{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '3rem',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '20px',
+          borderRadius: '0 0 2rem 2rem',
+          backdropFilter: 'blur(0.2rem)',
+          backgroundColor: 'rgba(4,255,0, 0.04)',
+          boxShadow: 'rgba(0, 0, 0, 0.3) 1rem 3rem 3rem',
+        },
+       
+      })
+    })
+  ],
 };
 export default config;
