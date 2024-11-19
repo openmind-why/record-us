@@ -4,7 +4,6 @@ import './globals.css'
 import Script from 'next/script'
 import { cookies, headers } from 'next/headers'
 import clsx from 'clsx'
-import { AntdRegistry } from '@ant-design/nextjs-registry'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,9 +22,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head></head>
-      <body className={clsx(inter.className, c?.value || 'light')}>
-        <AntdRegistry>{children}</AntdRegistry>
-      </body>
+      <body className={clsx(inter.className, c?.value || 'light')}>{children}</body>
     </html>
   )
 }
