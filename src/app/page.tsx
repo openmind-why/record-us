@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <div className='flex min-h-screen flex-col items-center justify-between  bg-base text-diy-base'>
       <Header />
-      <div className='flex-1 pt-12'>home</div>
+      <div className='flex-1 pt-16'>home</div>
     </div>
   )
 }

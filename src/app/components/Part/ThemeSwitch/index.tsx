@@ -1,7 +1,15 @@
-export default function ThemeSwitch() {
+import { forwardRef, useImperativeHandle, useRef } from 'react'
+
+export default forwardRef(function ThemeSwitch(props: any, ref: any) {
+  const ipt = useRef<HTMLInputElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    ipt,
+  }))
+
   return (
     <div className='toggle-cont'>
-      <input className='toggle-input' id='toggle' name='toggle' type='checkbox' />
+      <input ref={ipt} className='toggle-input' id='toggle' name='toggle' type='checkbox' />
       <label className='toggle-label' htmlFor='toggle'>
         <div className='cont-icon'>
           <span style={{ '--toggle-width': 2, '--toggle-deg': 25, '--toggle-duration': 11 }} className='sparkle'></span>
@@ -35,4 +43,4 @@ export default function ThemeSwitch() {
       </label>
     </div>
   )
-}
+})
