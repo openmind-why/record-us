@@ -11,12 +11,14 @@ export const metadata: Metadata = {
   description: '记录我们的时间',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  const c = cookies().get('theme')
+export default async function RootLayout(
+  {
+    children,
+  }: Readonly<{
+    children: React.ReactNode
+  }>
+) {
+  const c = (await cookies()).get('theme')
 
   return (
     <html lang='en'>

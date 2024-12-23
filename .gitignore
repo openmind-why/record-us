@@ -36,7 +36,8 @@ Dockerfile
 
 .env
 
-.next
+.next/*
+!.next/trace
 
 # vercel
 .vercel
