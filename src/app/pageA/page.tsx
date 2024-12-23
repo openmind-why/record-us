@@ -1,3 +1,3 @@
-export  default  ()=>{
-    return <div>pageA</div>
+export default () => {
+    return <div __cursorPointer>pageA</div>
 }

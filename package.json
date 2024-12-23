@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/nextjs-registry": "^1.0.1",
     "@vercel/postgres": "^0.9.0",
     "clsx": "^2.1.1",
     "cursor-pointer-loader": "^1.0.1",
