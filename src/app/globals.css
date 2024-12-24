@@ -21,6 +21,9 @@ body {
     --color-button-muted: 99, 102, 241;
     --bg-color: linear-gradient(153deg, #e97868, #c99e89, #98bfab, #10dcce);
     --toggle-checked: true;
+    --toggle-width: 1;
+    --toggle-deg: 0;
+    --toggle-duration: 1s;
   }
   .dark {
     --color-text-base: #fff;
