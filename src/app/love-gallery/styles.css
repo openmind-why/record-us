@@ -1,0 +1,396 @@
+/* 情侣主题照片展示页面样式 */
+
+/* 页面进入动画 */
+.photo-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 浮动爱心动画 */
+.floating-hearts .lucide-heart {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) rotate(-5deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-30px) rotate(3deg);
+    opacity: 0.4;
+  }
+}
+
+/* 闪烁星星动画 */
+.twinkling-stars .lucide-star {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+/* 照片卡片高级悬停效果 */
+.photo-card {
+  position: relative;
+}
+
+.photo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255, 182, 193, 0.1), 
+    rgba(255, 105, 180, 0.1), 
+    rgba(255, 20, 147, 0.1)
+  );
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.photo-card:hover::before {
+  opacity: 1;
+}
+
+/* 照片容器特效 */
+.photo-card .relative {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-card .relative::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg) translate(-100%, -100%);
+  transition: transform 0.6s ease;
+}
+
+.photo-card:hover .relative::after {
+  transform: rotate(45deg) translate(100%, 100%);
+}
+
+/* 爱心脉动效果 */
+.photo-card .lucide-heart {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* 照片缩放和旋转效果 */
+.photo-card:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* 文字渐入效果 */
+.photo-card .absolute.bottom-0 h3 {
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.5s ease 0.1s;
+}
+
+.photo-card .absolute.bottom-0 p {
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.5s ease 0.2s;
+}
+
+.photo-card:hover .absolute.bottom-0 h3,
+.photo-card:hover .absolute.bottom-0 p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .floating-hearts .lucide-heart,
+  .twinkling-stars .lucide-star {
+    font-size: 12px !important;
+  }
+
+  .photo-card {
+    margin-bottom: 1rem;
+  }
+
+  /* 移动端导航优化 */
+  .nav-title {
+    font-size: 1.25rem !important;
+  }
+
+  /* 移动端照片网格 */
+  .photo-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* 移动端模态框 */
+  .modal-content {
+    margin: 1rem !important;
+    max-height: 80vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* 超小屏幕优化 */
+  .page-title {
+    font-size: 2rem !important;
+  }
+
+  .page-description {
+    font-size: 0.875rem !important;
+  }
+
+  /* 音乐播放器移动端优化 */
+  .music-player-panel {
+    min-width: 280px !important;
+    right: 1rem !important;
+  }
+
+  /* 粒子效果在小屏幕上减少 */
+  .particle-background {
+    opacity: 0.1 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* 大屏幕优化 */
+  .photo-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* 超大屏幕优化 */
+  .container-max {
+    max-width: 1400px !important;
+  }
+}
+
+/* 深色模式特殊效果 */
+.dark .photo-card::before {
+  background: linear-gradient(45deg, 
+    rgba(147, 51, 234, 0.1), 
+    rgba(219, 39, 119, 0.1), 
+    rgba(239, 68, 68, 0.1)
+  );
+}
+
+/* 加载动画 */
+.photo-card img {
+  transition: all 0.3s ease;
+}
+
+.photo-card img[data-loaded="false"] {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.photo-card img[data-loaded="true"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 特殊悬停效果变体 */
+.photo-card:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.photo-card:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.photo-card:nth-child(3n) {
+  animation-delay: 0.3s;
+}
+
+/* 边框光晕效果 */
+.photo-card:hover .relative {
+  box-shadow: 
+    0 0 20px rgba(255, 182, 193, 0.4),
+    0 0 40px rgba(255, 105, 180, 0.2),
+    0 0 60px rgba(255, 20, 147, 0.1);
+}
+
+.dark .photo-card:hover .relative {
+  box-shadow: 
+    0 0 20px rgba(147, 51, 234, 0.4),
+    0 0 40px rgba(219, 39, 119, 0.2),
+    0 0 60px rgba(239, 68, 68, 0.1);
+}
+
+/* 3D 翻转效果（可选） */
+.photo-card-3d {
+  perspective: 1000px;
+}
+
+.photo-card-3d .relative {
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.photo-card-3d:hover .relative {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* 新的悬停效果变体 */
+
+/* 缩放效果 */
+.hover-zoom-card:hover img {
+  transform: scale(1.15);
+}
+
+/* 旋转效果 */
+.hover-rotate-card:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.hover-rotate-card:hover .relative {
+  transform: rotate(-2deg);
+}
+
+/* 翻转效果 */
+.hover-flip-card {
+  perspective: 1000px;
+}
+
+.hover-flip-card .relative {
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-flip-card:hover .relative {
+  transform: rotateY(15deg) rotateX(5deg);
+}
+
+/* 滑动效果 */
+.hover-slide-card:hover img {
+  transform: scale(1.1) translateX(10px);
+}
+
+/* 特殊的模态框动画 */
+.modal-enter {
+  animation: modalEnter 0.3s ease-out;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 爱心跳动效果增强 */
+.animate-heartbeat {
+  animation: heartbeatEnhanced 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeatEnhanced {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+/* 粒子效果 */
+.particle-effect {
+  position: absolute;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ff69b4, #ff1493);
+  border-radius: 50%;
+  animation: particleFloat 3s ease-out infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+}
+
+/* 光线扫描效果 */
+.light-sweep {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.photo-card:hover .light-sweep {
+  left: 100%;
+}

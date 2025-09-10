@@ -27,7 +27,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Dockerfile
-Dockerfile
+# Dockerfile
 
 /public/robots.txt
 
