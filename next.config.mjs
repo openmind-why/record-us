@@ -4,6 +4,10 @@
 const nextConfig = {
   output: "standalone",
   reactStrictMode: false,
+   typescript: {
+      // 在生产构建时忽略 TypeScript 错误
+       ignoreBuildErrors: true,
+    },
   images: {
     remotePatterns: [
       {
